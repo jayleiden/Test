@@ -9,10 +9,7 @@ const Balance = () => {
     if(state.balance > 0) { return 'green'} else {return 'red'}
   }
 
-  //const dataFromLocalStorage = JSON.parse(localStorage.getItem('data'));
-
   useEffect(()=>{
-    console.log("Suppp");
     localStorage.setItem("data", JSON.stringify(state));
   },[state])
 
