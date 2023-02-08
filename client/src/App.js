@@ -4,8 +4,10 @@ import History from "./Components/History";
 import AddTransaction from "./Components/AddTransaction";
 import { StateProvider } from "./Components/StateContext";
 
+
 function App() {
   return (
+    
     <StateProvider>
       <div className="App">
         <Balance />

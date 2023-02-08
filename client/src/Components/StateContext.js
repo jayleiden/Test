@@ -30,7 +30,10 @@ const initialState = {
 export const StateContext = createContext();
 
 export const StateProvider = (props) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState);
+    const [state, dispatch] = useReducer(AppReducer, initialState, () => {
+        const data = localStorage.getItem('data');
+        return data ? JSON.parse(data) : initialState;
+    });
 
     return (
         <StateContext.Provider
@@ -40,7 +43,7 @@ export const StateProvider = (props) => {
                 expense: state.expense,
                 history: state.history,
                 dispatch,
-            }} >
+            }}>
                 {props.children}
         </StateContext.Provider>
     );
